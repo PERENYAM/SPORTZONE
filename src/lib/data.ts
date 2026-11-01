@@ -1,5 +1,5 @@
 export type Item={id:string;type:'movie'|'tv';title:string;year:string;overview:string;poster:string|null;rating:number|null};
-export type Match={id:string;sport:'football'|'basketball';league:string;home:string;away:string;kickoff:string;status:'live'|'upcoming'|'finished'|'other';label?:string;detail?:string;homeLogo?:string;awayLogo?:string;homeScore?:number|null;awayScore?:number|null;demo?:boolean};
+export type Match={id:string;sport:'football'|'basketball';league:string;home:string;away:string;kickoff:string;status:'live'|'upcoming'|'finished'|'other';label?:string;detail?:string;homeLogo?:string;awayLogo?:string;homeScore?:number|null;awayScore?:number|null;matchUrl?:string;demo?:boolean};
 export type Result={items:Item[];source:'tmdb'|'demo';error?:string};
 const KEY=process.env.TMDB_API_KEY;
 const T=(t:'movie'|'tv',n:string[]):Item[]=>n.map((title,i)=>({id:`demo-${t}-${i}`,type:t,title:title+' (demo)',year:String(2020+(i%5)),overview:'Sample description shown because no TMDB_API_KEY is configured.',poster:null,rating:null}));
